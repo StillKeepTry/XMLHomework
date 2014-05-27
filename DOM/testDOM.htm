@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml">	
+    <head>
+        <title>Validating an XML Document</title>
+        <script type="text/javascript" language="javascript">			
+            function gao(type, name, value) {
+                var out = document;
+                out.write("节点类型(" + type + ") 节点名(" + name + ") 值(" + value + ")");
+                out.write("<br />");
+            }
+
+            function cout(tab) {
+                document.write(tab);
+            }
+
+            function btnTest_Click() {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET", "ch9_books.xml", false);
+                xmlhttp.send(null);
+                var xmlDoc = xmlhttp.responseXML;
+                var node = xmlDoc.documentElement;
+                var tab = "&nbsp;&nbsp;&nbsp;&nbsp";
+
+                gao("9", "#document", "null");
+                
+                cout(tab);
+                gao("7", "xml", "version=\"1.0\" encoding=\"ISO-8859-1\"");
+                
+                node = xmlDoc.firstChild;
+                cout(tab);
+                gao(node.nodeType, node.nodeName, node.nodeValue);
+                
+                var nodes = xmlDoc.getElementsByTagName("bookstore");
+                for (var i = 0; i < nodes.length; i ++) {
+                    var now = tab + tab;
+                    cout(now);
+                    node = nodes[i];
+                    gao(node.nodeType, node.nodeName, node.nodeValue);
+                    var nodes1 = node.getElementsByTagName("book");
+                    for (var j = 0; j < nodes1.length; j ++) {
+                        node = nodes1[j];
+                        var now1 = now + tab;
+                        cout(now1);
+                        gao(node.nodeType, node.nodeName, node.nodeValue);
+                        node = node.getAttributeNode("category");
+                        cout(now1);
+                        gao(node.nodeType, node.nodeName, node.nodeValue);
+                        node = nodes1[j];
+                        node = node.getElementsByTagName("title");
+                        for (var k = 0; k < node.length; k ++) {
+                            var now2 = now1 + tab;
+                            cout(now2);
+                            gao(node[k].nodeType, node[k].nodeName, node[k].nodeValue);
+                            cout(now2);
+                            var attr = node[k].getAttributeNode("lang");
+                            gao(attr.nodeType, attr.nodeName, attr.nodeValue);
+                            attr = node[k].childNodes[0];
+                            cout(now2 + tab);
+                            gao(attr.nodeType, attr.nodeName, attr.nodeValue);
+                        }
+                        node = nodes1[j];
+                        node = node.getElementsByTagName("author");
+                        for (var k = 0; k < node.length; k ++) {
+                            var now2 = now1 + tab;
+                            cout(now2);
+                            gao(node[k].nodeType, node[k].nodeName, node[k].nodeValue);
+                            var attr = node[k].childNodes[0];
+                            cout(now2 + tab);
+                            gao(attr.nodeType, attr.nodeName, attr.nodeValue);
+                        }
+                        node = nodes1[j];
+                        node = node.getElementsByTagName("year");
+                        for (var k = 0; k < node.length; k ++) {
+                            var now2 = now1 + tab;
+                            cout(now2);
+                            gao(node[k].nodeType, node[k].nodeName, node[k].nodeValue);
+                            var attr = node[k].childNodes[0];
+                            cout(now2 + tab);
+                            gao(attr.nodeType, attr.nodeName, attr.nodeValue);
+                        }
+                        node = nodes1[j];
+                        node = node.getElementsByTagName("price");
+                        for (var k = 0; k < node.length; k ++) {
+                            var now2 = now1 + tab;
+                            cout(now2);
+                            gao(node[k].nodeType, node[k].nodeName, node[k].nodeValue);
+                            var attr = node[k].childNodes[0];
+                            cout(now2 + tab);
+                            gao(attr.nodeType, attr.nodeName, attr.nodeValue);
+                        }
+                    }
+                }
+            }
+        </script>	
+    </head>
+    <body>
+        <input type="button" id="btnTest" value="输出所有节点的节点类型、节点名称、值" 
+        onclick="btnTest_Click()" />
+    </body>		
+</html>	

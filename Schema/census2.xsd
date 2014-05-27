@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.example.com/name"
+    xmlns="http://www.example.com/name"    
+    elementFormDefault="qualified"
+    >
+    <xs:element name="census-record">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="date">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="year" type="xs:positiveinteger"/>
+                            <xs:element name="month" type="xs:positiveinteger"/>
+                            <xs:element name="day" type="xs:positiveinteger"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="address">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="street">
+                                <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                        <xs:element name="unit" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="city" type="xs:string"/>
+                            <xs:element name="county" type="xs:string"/>
+                            <xs:element name="country" type="xs:string"/>
+                            <xs:element name="postalcode" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" name="person">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="first" type="xs:string"/>
+                                        <xs:element name="last" type="xs:string"/>
+                                        <xs:element name="junior" minOccurs="0" maxOccurs="1">
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="age" type="xs:positiveinteger"/>
+                            <xs:element name="gender">
+                                <xs:simpleType>
+                                    <xs:enumeration value="male"/>
+                                    <xs:enumeration value="female"/>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="pid" type="xs:string" use="required"/>
+                        <xs:attribute name="employed" use="optional">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="fulltime"/>
+                                    <xs:enumeration value="parttime"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="taker">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="9999"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

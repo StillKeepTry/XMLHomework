@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<!DOCTYPE census-record SYSTEM "census1.dtd">
+<census-record taker="3163">
+  <date><year>2003</year><month>10</month><day>11</day></date>
+  <address>
+    <street>471 Skipstone Lane <unit>4-A</unit></street>
+    <city>Emerald City</city>
+    <county>Greenhill</county>
+    <country>Oz</country>
+    <postalcode>885JKL</postalcode>
+  </address>
+  <person employed="fulltime" pid="P270405">
+    <name>
+      <first>Meeble</first>
+      <last>Bigbug</last>
+      <junior/>
+    </name>
+    <age>39</age>
+    <gender>male</gender>
+  </person>
+  <person employed="parttime" pid="P273882">
+    <name>
+      <first>Mable</first>
+      <last>Bigbug</last>
+    </name>
+    <age>36</age>
+    <gender>female</gender>
+  </person>
+  <person pid="P472891">
+    <name>
+      <first>Marble</first>
+      <last>Bigbug</last>
+    </name>
+    <age>11</age>
+    <gender>male</gender>
+  </person>
+</census-record>

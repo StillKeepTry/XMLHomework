@@ -1,0 +1,41 @@
+<catalog>
+
+    <product code="123">
+        <description>Blue jeans</description>
+        <price>35.99</price>
+    </product>
+
+    <product code="456">
+        <description>Plaid shirt</description>
+        <price>22.95</price>
+    </product>
+
+    <product code="789">
+        <description>Leather jacket</description>
+        <price>185.00</price>
+    </product>
+
+    <product code="321">
+        <description>Silk tie</description>
+        <price>32.50</price>
+        <discount-policy>
+            <items>3</items>
+            <discount>25</discount>
+        </discount-policy>
+    </product>
+
+    <product code="654">
+        <description>Wool sweater</description>
+        <price>27.99</price>
+        <discount-policy>
+            <items>2</items>
+            <discount>15</discount>
+        </discount-policy>
+    </product>
+
+    <product code="987">
+        <description>Patent shoes</description>
+        <price>87.00</price>
+    </product>
+
+</catalog>
