@@ -1,4 +1,0 @@
-可以利用eclipse打开运行，也可以在该目录下输入以下指令：
-javac Order.java
-java Order
-这样就可以得到结果了。

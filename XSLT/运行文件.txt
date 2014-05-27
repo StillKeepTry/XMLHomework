@@ -1,1 +1,0 @@
-用visual studio打开Catalog.xslt，点击验证
